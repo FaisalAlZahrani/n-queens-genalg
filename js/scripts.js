@@ -41,19 +41,41 @@ function generateRandomPopulation(populationSize=5, stateSize=8) {
     return population;
 }
 
-function applyGeneticAlgorithm() {
-    clearBoard()
+async function applyGeneticAlgorithm() {
+    let mRate = Number(document.getElementById('mutation-field').value);
+    let iterations = Number(document.getElementById('iterations-field').value);
     let population = generateRandomPopulation(50, 8);
-    let result = geneticAlgorithm(population, 0.8);
+    let result = await geneticAlgorithm(population, mRate, iterations);
     let resultState = result[0];
     visualizeState(resultState);
 }
 
 function visualizeState(state) {
+    clearBoard();
     let chessboardRows = chessboardElement.getElementsByClassName('chessboard-row');
     for (let i = 0; i < state.length; i++) {
         chessboardRows[state[i]].children[i].textContent = 'Q';
     }
+    updateStatus(state);
+}
+
+function updateGeneration(number) {
+    let generationCountElement = document.getElementById('generation-count');
+    generationCountElement.textContent = 'Generation: ' + number;
+}
+
+function updateStatus(state) {
+    let stateStatusElement = document.getElementById('state-status');
+    if (isGoal(state)) {
+        stateStatusElement.textContent = 'State Status: Correct';
+    }
+    else {
+        stateStatusElement.textContent = 'State Status: Incorrect';
+    }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 createChessBoard(chessboardElement, 8);

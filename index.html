@@ -19,8 +19,23 @@
 
         </div>
 
-        <div id="actions">
-            <button class="action" onclick="applyGeneticAlgorithm()">Apply Genetic Algorithm</button>
+        <div id="actions-and-options">
+            <div class="option-container">
+                <label class="option-label">Mutation Rate</label>
+                <input id="mutation-field" type="text" class="option-field" placeholder="e.g., 0.8" value="0.8" spellcheck="false" required>
+            </div>
+
+            <div class="option-container">
+                <label class="option-label">Maximum Number of Generations</label>
+                <input id="iterations-field" type="text" class="option-field" placeholder="e.g., 10000" value="10000" spellcheck="false" required>
+            </div>
+
+            <button class="action" onclick="applyGeneticAlgorithm()">Start</button>
+
+            <div class="info-container">
+                <p id="generation-count" class="info-label">Generation: 0</p>
+                <p id="state-status" class="info-label">State Status: No State Shown</p>
+            </div>
         </div>
     </div>
 

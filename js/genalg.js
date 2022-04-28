@@ -92,12 +92,13 @@ function indexOfMax(arr) {
     return maxIndex;
 }
 
-function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
+async function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
     let iterations = 0;
     while (true) {
         iterations++;
         let newPopulation = [];
         let probs = fitnessProbs(population);
+        let state = []; // For visualization
         for (let i = 0; i < population.length; i++) {
             let parents = selectParents(population, probs);
             let individual = reproduce(parents[0], parents[1]);
@@ -106,7 +107,13 @@ function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
                 return [individual, iterations];
             }
             newPopulation.push(individual);
+            state = individual;
         }
+
+        await sleep(0.2); // For visualization
+        visualizeState(state); // For visualization
+        updateGeneration(iterations); // For visualization
+
         population = newPopulation;
         if (iterations == max_iters) {
             probs = fitnessProbs(population);
