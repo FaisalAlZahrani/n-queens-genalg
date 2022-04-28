@@ -92,7 +92,7 @@ function indexOfMax(arr) {
     return maxIndex;
 }
 
-function geneticAlgorithm(population, mRate=0.1, max_iters=5000) {
+function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
     let iterations = 0;
     while (true) {
         iterations++;
