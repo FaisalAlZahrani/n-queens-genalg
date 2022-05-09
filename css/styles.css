@@ -16,7 +16,10 @@ html, body {
 .chessboard {
     display: flex;
     flex-direction: column;
+    -webkit-appearance: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     margin: 0 5rem;
 }
 
@@ -48,7 +51,10 @@ html, body {
     font-family: sans-serif;
     border: none;
     border-radius: 5px;
+    -webkit-appearance: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     margin: 3rem 0;
 }
 
@@ -80,7 +86,10 @@ html, body {
     outline: none;
     height: 4rem;
     padding: 1rem;
+    -webkit-appearance: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     font-family: sans-serif;
     font-size: 1.5rem;
