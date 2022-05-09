@@ -113,3 +113,28 @@ html, body {
     font-size: 1.5rem;
     font-family: sans-serif;
 }
+
+@media only screen and (max-width: 1339px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .chessboard-block {
+        width: 4rem;
+        height: 4rem;
+        line-height: 4rem;
+        font-size: 4rem;
+    }
+
+    .chessboard {
+        margin: 4rem 0;
+    }
+
+    .action {
+        margin: 1.5rem 0;
+    }
+
+    .option-field {
+        margin-bottom: 2rem;
+    }
+}
