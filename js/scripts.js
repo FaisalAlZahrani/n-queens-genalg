@@ -1,5 +1,6 @@
 let chessboardElement = document.getElementById('main-chessboard');
 let populationElement = document.getElementById('population');
+let running = false;
 
 function createChessBoard(parent, size=8) {
     for (let i = 0; i < size; i++) {
@@ -42,12 +43,19 @@ function generateRandomPopulation(populationSize=5, stateSize=8) {
 }
 
 async function applyGeneticAlgorithm() {
-    let mRate = Number(document.getElementById('mutation-field').value);
-    let iterations = Number(document.getElementById('iterations-field').value);
-    let population = generateRandomPopulation(50, 8);
-    let result = await geneticAlgorithm(population, mRate, iterations);
-    let resultState = result[0];
-    visualizeState(resultState);
+    if (!running) {
+        running = true
+        let mRate = Number(document.getElementById('mutation-field').value);
+        let iterations = Number(document.getElementById('iterations-field').value);
+        let population = generateRandomPopulation(50, 8);
+        let result = await geneticAlgorithm(population, mRate, iterations);
+        let resultState = result[0];
+        visualizeState(resultState);
+        running = false
+    }
+    else {
+        alert("The algorithm is currently running.")
+    }
 }
 
 function visualizeState(state) {
