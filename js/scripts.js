@@ -58,7 +58,7 @@ async function applyGeneticAlgorithm() {
         }
     }
     else {
-        alert("The algorithm is currently running.");
+        alert("The algorithm is currently running. If you want to reset, refresh the page, or wait for the algorithm to finish.");
     }
 }
 
