@@ -45,9 +45,10 @@ function generateRandomPopulation(populationSize=5, stateSize=8) {
 async function applyGeneticAlgorithm() {
     if (!running) {
         running = true
+        let populationSize = Number(document.getElementById('population-field').value);
         let mRate = Number(document.getElementById('mutation-field').value);
         let iterations = Number(document.getElementById('iterations-field').value);
-        let population = generateRandomPopulation(50, 8);
+        let population = generateRandomPopulation(populationSize, 8);
         let result = await geneticAlgorithm(population, mRate, iterations);
         let resultState = result[0];
         visualizeState(resultState);

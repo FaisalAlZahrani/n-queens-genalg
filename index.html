@@ -27,7 +27,7 @@
             <div id="main-chessboard" class="chessboard">
 
             </div>
-            
+
             <div class="info-container">
                 <p id="generation-count" class="info-label">Generation: 0</p>
                 <p id="state-status" class="info-label">State Status: No State Shown</p>
@@ -35,6 +35,11 @@
         </div>
 
         <div id="actions-and-options">
+            <div class="option-container">
+                <label class="option-label">Population Size</label>
+                <input id="population-field" type="text" class="option-field" placeholder="e.g., 50" value="50" spellcheck="false" required>
+            </div>
+
             <div class="option-container">
                 <label class="option-label">Mutation Rate</label>
                 <input id="mutation-field" type="text" class="option-field" placeholder="e.g., 0.8" value="0.8" spellcheck="false" required>
