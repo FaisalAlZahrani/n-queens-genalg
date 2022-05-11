@@ -44,18 +44,48 @@ function generateRandomPopulation(populationSize=5, stateSize=8) {
 
 async function applyGeneticAlgorithm() {
     if (!running) {
-        running = true
-        let populationSize = Number(document.getElementById('population-field').value);
-        let mRate = Number(document.getElementById('mutation-field').value);
-        let iterations = Number(document.getElementById('iterations-field').value);
-        let population = generateRandomPopulation(populationSize, 8);
-        let result = await geneticAlgorithm(population, mRate, iterations);
-        let resultState = result[0];
-        visualizeState(resultState);
-        running = false
+        let [populationSize, mRate, iterations] = getInputs();
+        let correct = checkInputs(populationSize, mRate, iterations);
+        if (correct) {
+            running = true;
+            let initialPopulation = generateRandomPopulation(populationSize, 8);
+            let result = await geneticAlgorithm(initialPopulation, mRate, iterations);
+            let resultState = result[0];
+            visualizeState(resultState);
+            running = false;
+        }
     }
     else {
-        alert("The algorithm is currently running.")
+        alert("The algorithm is currently running.");
+    }
+}
+
+function getInputs() {
+    let populationSize = Number(document.getElementById('population-field').value) ?? 0;
+    let mRate = Number(document.getElementById('mutation-field').value) ?? 0;
+    let iterations = Number(document.getElementById('iterations-field').value) ?? 0;
+    return [populationSize, mRate, iterations];
+}
+
+function checkInputs(populationSize, mRate, iterations) {
+    if (populationSize <= 0) {
+        alert("Population size cannot be less than or equal to 0.");
+        return false;
+    }
+    else if (populationSize > 1000) {
+        alert("Population size should not be greater than 1000 due to slow runtime.");
+        return false;
+    }
+    else if (mRate <= 0 || mRate > 1) {
+        alert("Mutation rate should be between 0 and 1.");
+        return false;
+    }
+    else if (iterations <= 0) {
+        alert("Number of generations should be greater than zero.");
+        return false;
+    }
+    else {
+        return true;
     }
 }
 
