@@ -2,6 +2,8 @@ let chessboardElement = document.getElementById('main-chessboard');
 let populationElement = document.getElementById('population');
 let running = false;
 
+createChessBoard(chessboardElement, 8);
+
 function createChessBoard(parent, size=8) {
     for (let i = 0; i < size; i++) {
         let chessboardRow = document.createElement('div');
@@ -116,5 +118,3 @@ function updateStatus(state) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-createChessBoard(chessboardElement, 8);
