@@ -23,8 +23,15 @@
             <p class="description-text">The genetic algorithm creates a random population, assigns scores to each individual, chooses the best two from the population to create a new individual, and applies a mutation on the new individual based on the mutation rate. The procedure continues until we generate a solution, or we reach the maximum number of generations.</p>
         </div>
 
-        <div id="main-chessboard" class="chessboard">
+        <div class="chessboard-and-info">
+            <div id="main-chessboard" class="chessboard">
 
+            </div>
+            
+            <div class="info-container">
+                <p id="generation-count" class="info-label">Generation: 0</p>
+                <p id="state-status" class="info-label">State Status: No State Shown</p>
+            </div>
         </div>
 
         <div id="actions-and-options">
@@ -39,11 +46,6 @@
             </div>
 
             <button class="action" onclick="applyGeneticAlgorithm()">Start</button>
-
-            <div class="info-container">
-                <p id="generation-count" class="info-label">Generation: 0</p>
-                <p id="state-status" class="info-label">State Status: No State Shown</p>
-            </div>
         </div>
     </div>
 

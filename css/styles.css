@@ -96,6 +96,11 @@ html, body {
     margin-bottom: 3rem;
 }
 
+.info-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .info-label {
     display: block;
     color: #444444;
@@ -135,7 +140,7 @@ html, body {
         font-size: 4rem;
     }
 
-    .chessboard {
+    .chessboard-and-info {
         margin: 4rem 0;
     }
 
@@ -145,5 +150,9 @@ html, body {
 
     .option-field {
         margin-bottom: 2rem;
+    }
+
+    .info-label {
+        font-size: 1.5rem;
     }
 }
