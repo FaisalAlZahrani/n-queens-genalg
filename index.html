@@ -36,6 +36,16 @@
 
         <div id="actions-and-options">
             <div class="option-container">
+                <label class="option-label">Chessboard Size</label>
+                <select onchange="updateChessboard()" id="chessboard-field" class="size-field option-field">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8" selected>8</option>
+                </select>
+            </div>
+
+            <div class="option-container">
                 <label class="option-label">Population Size</label>
                 <input id="population-field" type="text" class="option-field" placeholder="e.g., 50" value="50" spellcheck="false" required>
             </div>

@@ -1,6 +1,7 @@
 let chessboardElement = document.getElementById('main-chessboard');
 let populationElement = document.getElementById('population');
 let running = false;
+let chessboardSize = 8;
 
 createChessBoard(chessboardElement, 8);
 
@@ -50,7 +51,7 @@ async function applyGeneticAlgorithm() {
         let correct = checkInputs(populationSize, mRate, iterations);
         if (correct) {
             running = true;
-            let initialPopulation = generateRandomPopulation(populationSize, 8);
+            let initialPopulation = generateRandomPopulation(populationSize, chessboardSize);
             let result = await geneticAlgorithm(initialPopulation, mRate, iterations);
             let resultState = result[0];
             visualizeState(resultState);
@@ -117,4 +118,10 @@ function updateStatus(state) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function updateChessboard() {
+    chessboardSize = Number(document.getElementById('chessboard-field').value);
+    chessboardElement.innerHTML = "";
+    createChessBoard(chessboardElement, chessboardSize);
 }
