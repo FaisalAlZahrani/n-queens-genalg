@@ -109,10 +109,10 @@ function updateGeneration(number) {
 function updateStatus(state) {
     let stateStatusElement = document.getElementById('state-status');
     if (isGoal(state)) {
-        stateStatusElement.textContent = 'State Status: Correct';
+        stateStatusElement.textContent = 'Status: Correct';
     }
     else {
-        stateStatusElement.textContent = 'State Status: Incorrect';
+        stateStatusElement.textContent = 'Status: Incorrect';
     }
 }
 
