@@ -121,7 +121,9 @@ function sleep(ms) {
 }
 
 function updateChessboard() {
-    chessboardSize = Number(document.getElementById('chessboard-field').value);
-    chessboardElement.innerHTML = "";
-    createChessBoard(chessboardElement, chessboardSize);
+    if (!running) {
+        chessboardSize = Number(document.getElementById('chessboard-field').value);
+        chessboardElement.innerHTML = "";
+        createChessBoard(chessboardElement, chessboardSize);
+    }
 }
