@@ -8,7 +8,7 @@ function createChessBoard(parent, size=8) {
     for (let i = 0; i < size; i++) {
         let chessboardRow = document.createElement('div');
         chessboardRow.classList.add('chessboard-row');
-        for (let j = 0; j < 8; j++) {
+        for (let j = 0; j < size; j++) {
             let chessboardBlock = document.createElement('div');
             chessboardBlock.classList.add('chessboard-block');
             if ((i + j) % 2 != 0) {
