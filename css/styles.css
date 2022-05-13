@@ -128,6 +128,10 @@ html, body {
     font-family: sans-serif;
 }
 
+.inline {
+    display: inline;
+}
+
 @media only screen and (max-width: 1339px) {
     .container {
         flex-direction: column;
