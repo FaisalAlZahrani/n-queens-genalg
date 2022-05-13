@@ -1,5 +1,7 @@
 let chessboardElement = document.getElementById('main-chessboard');
 let populationElement = document.getElementById('population');
+let generationCountElement = document.getElementById('generation-count');
+let stateStatusElement = document.getElementById('state-status');
 let running = false;
 let chessboardSize = 8;
 
@@ -102,12 +104,10 @@ function visualizeState(state) {
 }
 
 function updateGeneration(number) {
-    let generationCountElement = document.getElementById('generation-count');
     generationCountElement.textContent = 'Generation: ' + number;
 }
 
 function updateStatus(state) {
-    let stateStatusElement = document.getElementById('state-status');
     if (isGoal(state)) {
         stateStatusElement.textContent = 'Correct';
         stateStatusElement.style.color = 'green';
@@ -124,9 +124,7 @@ function sleep(ms) {
 
 function updateChessboard() {
     if (!running) {
-        let generationCountElement = document.getElementById('generation-count');
         generationCountElement.textContent = 'Generation: N/A';
-        let stateStatusElement = document.getElementById('state-status');
         stateStatusElement.textContent = 'N/A';
         chessboardSize = Number(document.getElementById('chessboard-field').value);
         chessboardElement.innerHTML = "";
