@@ -126,6 +126,7 @@ function updateChessboard() {
     if (!running) {
         generationCountElement.textContent = 'Generation: N/A';
         stateStatusElement.textContent = 'N/A';
+        stateStatusElement.style.color = '#444444';
         chessboardSize = Number(document.getElementById('chessboard-field').value);
         chessboardElement.innerHTML = "";
         createChessBoard(chessboardElement, chessboardSize);
