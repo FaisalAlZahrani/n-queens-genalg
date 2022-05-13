@@ -107,7 +107,7 @@ async function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
                 return [individual, iterations];
             }
             newPopulation.push(individual);
-            state = individual;
+            state = individual; // For visualization
         }
 
         await sleep(0.2); // For visualization
