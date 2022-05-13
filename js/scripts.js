@@ -81,7 +81,7 @@ function checkInputs(populationSize, mRate, iterations) {
         alert("Population size should not be greater than 1000 due to slow runtime.");
         return false;
     }
-    else if (mRate <= 0 || mRate > 1) {
+    else if (mRate < 0 || mRate > 1) {
         alert("Mutation rate should be between 0 and 1.");
         return false;
     }
