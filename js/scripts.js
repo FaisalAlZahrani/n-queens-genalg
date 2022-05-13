@@ -124,6 +124,10 @@ function sleep(ms) {
 
 function updateChessboard() {
     if (!running) {
+        let generationCountElement = document.getElementById('generation-count');
+        generationCountElement.textContent = 'Generation: N/A';
+        let stateStatusElement = document.getElementById('state-status');
+        stateStatusElement.textContent = 'N/A';
         chessboardSize = Number(document.getElementById('chessboard-field').value);
         chessboardElement.innerHTML = "";
         createChessBoard(chessboardElement, chessboardSize);
