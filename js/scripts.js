@@ -82,7 +82,7 @@ function checkInputs(populationSize, mRate, iterations) {
         return false;
     }
     else if (mRate < 0 || mRate > 1) {
-        alert("Mutation rate should be between 0 and 1.");
+        alert("Mutation rate should be between 0 and 1, inclusive.");
         return false;
     }
     else if (iterations <= 0) {
