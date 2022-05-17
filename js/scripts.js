@@ -6,7 +6,7 @@ let running = false;
 let chessboardSize = 8;
 let usingWebKit = false;
 
-if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
+if (typeof window.webkitConvertPointFromNodeToPage === 'function') {
     usingWebKit = true;
 }
 
