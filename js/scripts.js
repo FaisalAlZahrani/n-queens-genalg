@@ -101,6 +101,7 @@ function visualizeState(state) {
         let svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svgElement.setAttribute('width', '100%');
         svgElement.setAttribute('height', '100%');
+        svgElement.setAttribute('preserveAspectRatio', 'none');
         svgElement.setAttribute('viewBox', '0 0 15 15');
         let textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         textElement.setAttribute('x', '50%');
