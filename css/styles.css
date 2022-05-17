@@ -21,20 +21,24 @@ html, body {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     margin: 0 5rem;
+    width: 40vw;
+    height: 40vw;
 }
 
 .chessboard-row {
     display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .chessboard-block {
-    height: 7rem;
-    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
     border: 2px solid #444444;
-    font-size: 5rem;
+    font-size: calc(2vw + 2vh);
     font-family: sans-serif;
-    text-align: center;
-    line-height: 7rem;
 }
 
 #actions-and-options {
@@ -74,7 +78,7 @@ html, body {
 .option-label {
     display: block;
     color: #444444;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: sans-serif;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -114,34 +118,19 @@ html, body {
     width: 30rem;
 }
 
-.title {
-    color: #444444;
-    font-size: 3rem;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.description-text {
-    color: #444444;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-}
-
 .inline {
     display: inline;
 }
 
-@media only screen and (max-width: 1339px) {
+@media only screen and (max-width: 1200px) {
     .container {
         flex-direction: column;
     }
 
-    .chessboard-block {
-        width: 4rem;
-        height: 4rem;
-        line-height: 4rem;
-        font-size: 4rem;
+    .chessboard {
+        width: 80vh;
+        height: 80vh;
+        margin: 0;
     }
 
     .chessboard-and-info {
@@ -162,5 +151,12 @@ html, body {
 
     #actions-and-options {
         flex-direction: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 630px) {
+    .chessboard {
+        width: 85vw;
+        height: 85vw;
     }
 }
