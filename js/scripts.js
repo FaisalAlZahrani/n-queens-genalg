@@ -2,7 +2,9 @@ let chessboardElement = document.getElementById('main-chessboard');
 let populationElement = document.getElementById('population');
 let generationCountElement = document.getElementById('generation-count');
 let stateStatusElement = document.getElementById('state-status');
+let actionButton = document.getElementById('action');
 let running = false;
+let cancelFlag = false;
 let chessboardSize = 8;
 let usingWebKit = false;
 
@@ -12,6 +14,7 @@ if (typeof window.webkitConvertPointFromNodeToPage === 'function') {
 
 
 createChessBoard(chessboardElement, 8);
+actionButton.onclick = actionButtonClicked;
 
 function createChessBoard(parent, size=8) {
     for (let i = 0; i < size; i++) {
@@ -53,8 +56,9 @@ function generateRandomPopulation(populationSize=5, stateSize=8) {
     return population;
 }
 
-async function applyGeneticAlgorithm() {
+async function actionButtonClicked() {
     if (!running) {
+        actionButton.textContent = 'Stop';
         let [populationSize, mRate, iterations] = getInputs();
         let correct = checkInputs(populationSize, mRate, iterations);
         if (correct) {
@@ -64,10 +68,12 @@ async function applyGeneticAlgorithm() {
             let resultState = result[0];
             visualizeState(resultState);
             running = false;
+            cancelFlag = false;
         }
     }
     else {
-        alert("The algorithm is currently running. If you want to reset, refresh the page, or wait for the algorithm to finish.");
+        cancelFlag = true;
+        actionButton.textContent = 'Start'
     }
 }
 

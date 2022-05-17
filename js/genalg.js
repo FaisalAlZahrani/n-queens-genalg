@@ -103,7 +103,7 @@ async function geneticAlgorithm(population, mRate=0.1, max_iters=10000) {
             let parents = selectParents(population, probs);
             let individual = reproduce(parents[0], parents[1]);
             individual = mutate(individual, mRate=mRate);
-            if (isGoal(individual)) {
+            if (isGoal(individual) || cancelFlag) { // Stop when goal is reached, or the user stops the execution.
                 return [individual, iterations];
             }
             newPopulation.push(individual);
