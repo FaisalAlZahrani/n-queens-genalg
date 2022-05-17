@@ -4,6 +4,12 @@ let generationCountElement = document.getElementById('generation-count');
 let stateStatusElement = document.getElementById('state-status');
 let running = false;
 let chessboardSize = 8;
+let usingWebKit = false;
+
+if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
+    usingWebKit = true;
+}
+
 
 createChessBoard(chessboardElement, 8);
 
@@ -99,12 +105,15 @@ function visualizeState(state) {
     let chessboardRows = chessboardElement.getElementsByClassName('chessboard-row');
     for (let i = 0; i < state.length; i++) {
         let svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svgElement.setAttribute('width', '100%');
-        svgElement.setAttribute('height', '100%');
         svgElement.setAttribute('viewBox', '0 0 15 15');
         let textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
         textElement.setAttribute('x', '50%');
-        textElement.setAttribute('y', '50%');
+        if (usingWebKit){
+            textElement.setAttribute('y', '70%');
+        }
+        else {
+            textElement.setAttribute('y', '50%');
+        }
         textElement.setAttribute('text-anchor', 'middle');
         textElement.setAttribute('dominant-baseline', 'middle');
         textElement.textContent = 'Q';
