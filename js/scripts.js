@@ -69,11 +69,11 @@ async function actionButtonClicked() {
             visualizeState(resultState);
             running = false;
             cancelFlag = false;
+            actionButton.textContent = 'Start'
         }
     }
     else {
         cancelFlag = true;
-        actionButton.textContent = 'Start'
     }
 }
 
