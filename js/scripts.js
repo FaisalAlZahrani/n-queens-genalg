@@ -98,8 +98,6 @@ function visualizeState(state) {
     clearBoard();
     let chessboardRows = chessboardElement.getElementsByClassName('chessboard-row');
     for (let i = 0; i < state.length; i++) {
-        let divElement = document.createElement('div');
-        divElement.style.height = '100%';
         let svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svgElement.setAttribute('width', '100%');
         svgElement.setAttribute('height', '100%');
@@ -111,8 +109,7 @@ function visualizeState(state) {
         textElement.setAttribute('dominant-baseline', 'middle');
         textElement.textContent = 'Q';
         svgElement.appendChild(textElement);
-        divElement.appendChild(svgElement);
-        chessboardRows[state[i]].children[i].appendChild(divElement);
+        chessboardRows[state[i]].children[i].appendChild(svgElement);
     }
     updateStatus(state);
 }
