@@ -149,7 +149,7 @@ html, body {
     }
 
     .action {
-        margin: 1.5rem 0;
+        margin: 0 0 3rem 0;
     }
 
     .option-field {
@@ -158,5 +158,9 @@ html, body {
 
     .info-label {
         font-size: 1.5rem;
+    }
+
+    #actions-and-options {
+        flex-direction: column-reverse;
     }
 }
