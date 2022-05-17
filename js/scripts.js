@@ -112,6 +112,8 @@ function visualizeState(state) {
             textElement.setAttribute('y', '70%');
         }
         else {
+            svgElement.setAttribute('width', '100%');
+            svgElement.setAttribute('height', '100%');
             textElement.setAttribute('y', '50%');
         }
         textElement.setAttribute('text-anchor', 'middle');
