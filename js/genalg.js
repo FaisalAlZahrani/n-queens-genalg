@@ -54,9 +54,26 @@ function selectParents(population, probs) {
 }
 
 function reproduce(parent1, parent2) {
-    let n = parent1.length;
-    let c = Math.floor(Math.random() * n);
-    return parent1.slice(0, c).concat(parent2.slice(c));
+    let possibleValues = [];
+    for (let i = 0; i < parent1.length; i++) {
+        if (parent1.indexOf(i) != parent2.indexOf(i)) {
+            possibleValues.push(i);
+        }
+    }
+
+    let child = [];
+    for (let i = 0; i < parent1.length; i++) {
+        if (parent1[i] == parent2[i]) {
+            let value = parent1[i];
+            child.push(value);
+        }
+        else {
+            let value = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+            child.push(value);
+            possibleValues.splice(possibleValues.indexOf(value), 1);
+        }
+    }
+    return child;
 }
 
 function mutate(state, mRate=0.1) {
@@ -65,12 +82,7 @@ function mutate(state, mRate=0.1) {
         return state;
     }
     else {
-        let n = state.length;
-        let firstSample = Math.floor(Math.random() * n);
-        let secondSample = Math.floor(Math.random() * n);
-        let newState = Array.from(state);
-        newState[firstSample] = secondSample;
-        return newState;
+        return generateRandomState(state.length);
     }
 }
 

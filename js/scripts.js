@@ -43,7 +43,12 @@ function clearBoard() {
 function generateRandomState(size=8) {
     let state = [];
     for (let i = 0; i < size; i++) {
-        state.push(Math.floor(Math.random() * size));     
+        state.push(i);
+    }
+    
+    for (let i = state.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [state[i], state[j]] = [state[j], state[i]];
     }
     return state;
 }
