@@ -65,8 +65,8 @@ async function actionButtonClicked() {
             running = true;
             let initialPopulation = generateRandomPopulation(populationSize, chessboardSize);
             let result = await geneticAlgorithm(initialPopulation, mRate, iterations);
-            let resultState = result[0];
-            visualizeState(resultState);
+            visualizeState(result[0]);
+            updateGeneration(result[1])
             running = false;
             cancelFlag = false;
             actionButton.textContent = 'Start'
